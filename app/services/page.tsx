@@ -16,17 +16,16 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <main className="min-h-screen">
-      <Header />
       <PageHeader
         title="Our Services"
         subtitle="Comprehensive travel solutions tailored to your needs"
         breadcrumb="Services"
       />
-      <ServicesGrid />
-      <ServiceProcess />
+      <div className="md:px-20 px-4">
+        <ServicesGrid />
+        <ServiceProcess />
+      </div>
       <ServicesCTA />
-      <Footer />
-      <ScrollToTop />
     </main>
   )
 }

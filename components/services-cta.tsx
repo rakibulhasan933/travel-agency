@@ -6,7 +6,7 @@ import { ArrowRight, Phone, MessageCircle } from "lucide-react"
 
 export function ServicesCTA() {
   return (
-    <section className="py-20 lg:py-32 bg-gradient-to-br from-[oklch(0.25_0.06_250)] via-[oklch(0.20_0.05_250)] to-[oklch(0.25_0.06_250)] relative overflow-hidden">
+    <section className="py-20 lg:py-32 bg-linear-to-br from-[oklch(0.25_0.06_250)] via-[oklch(0.20_0.05_250)] to-[oklch(0.25_0.06_250)] relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-20 w-80 h-80 bg-primary/20 rounded-full blur-3xl" />
