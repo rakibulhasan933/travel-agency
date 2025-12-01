@@ -17,18 +17,17 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main className="min-h-screen">
-      <Header />
       <PageHeader
         title="About GlobalVoyage"
         subtitle="Your trusted partner in creating unforgettable travel experiences since 2009"
         breadcrumb="About Us"
       />
-      <AboutContent />
-      <MilestonesSection />
-      <TeamSection />
-      <PartnersSection />
-      <Footer />
-      <ScrollToTop />
+      <div className="md:px-20 px-4">
+        <AboutContent />
+        <MilestonesSection />
+        <TeamSection />
+        <PartnersSection />
+      </div>
     </main>
   )
 }
