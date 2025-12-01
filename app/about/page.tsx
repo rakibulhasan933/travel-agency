@@ -1,0 +1,34 @@
+import type { Metadata } from "next"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
+import { ScrollToTop } from "@/components/scroll-to-top"
+import { PageHeader } from "@/components/page-header"
+import { AboutContent } from "@/components/about-content"
+import { TeamSection } from "@/components/team-section"
+import { MilestonesSection } from "@/components/milestones-section"
+import { PartnersSection } from "@/components/partners-section"
+
+export const metadata: Metadata = {
+  title: "About Us | GlobalVoyage - Your Trusted Travel Partner",
+  description:
+    "Learn about GlobalVoyage's journey, our mission, expert team, and commitment to making your travel dreams come true since 2009.",
+}
+
+export default function AboutPage() {
+  return (
+    <main className="min-h-screen">
+      <Header />
+      <PageHeader
+        title="About GlobalVoyage"
+        subtitle="Your trusted partner in creating unforgettable travel experiences since 2009"
+        breadcrumb="About Us"
+      />
+      <AboutContent />
+      <MilestonesSection />
+      <TeamSection />
+      <PartnersSection />
+      <Footer />
+      <ScrollToTop />
+    </main>
+  )
+}
