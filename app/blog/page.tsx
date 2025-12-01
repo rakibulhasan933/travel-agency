@@ -1,7 +1,4 @@
 import type { Metadata } from "next"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { ScrollToTop } from "@/components/scroll-to-top"
 import { PageHeader } from "@/components/page-header"
 import { BlogGrid } from "@/components/blog-grid"
 import { BlogCategories } from "@/components/blog-categories"
@@ -16,17 +13,16 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <main className="min-h-screen">
-      <Header />
       <PageHeader
         title="Travel Blog"
         subtitle="Tips, guides, and inspiring stories for your next adventure"
         breadcrumb="Blog"
       />
-      <BlogCategories />
-      <BlogGrid />
-      <BlogNewsletter />
-      <Footer />
-      <ScrollToTop />
+      <div className="md:px-20 px-4">
+        <BlogCategories />
+        <BlogGrid />
+        <BlogNewsletter />
+      </div>
     </main>
   )
 }
