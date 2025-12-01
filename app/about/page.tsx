@@ -1,7 +1,4 @@
 import type { Metadata } from "next"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { ScrollToTop } from "@/components/scroll-to-top"
 import { PageHeader } from "@/components/page-header"
 import { AboutContent } from "@/components/about-content"
 import { TeamSection } from "@/components/team-section"

@@ -1,7 +1,4 @@
 import type { Metadata } from "next"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { ScrollToTop } from "@/components/scroll-to-top"
 import { PageHeader } from "@/components/page-header"
 import { ServicesGrid } from "@/components/services-grid"
 import { ServiceProcess } from "@/components/service-process"

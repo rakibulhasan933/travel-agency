@@ -1,8 +1,5 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { ScrollToTop } from "@/components/scroll-to-top"
 import { BlogPostContent } from "@/components/blog-post-content"
 import { blogPosts, getBlogPostBySlug } from "@/lib/blog-data"
 
