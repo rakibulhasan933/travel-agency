@@ -9,7 +9,6 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Send, CheckCircle, Loader2 } from "lucide-react"
-import { sendContactEmail } from "@/app/actions/send-email"
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -22,9 +21,24 @@ export function ContactForm() {
     setError(null)
 
     const formData = new FormData(e.currentTarget)
+    const data = {
+      firstName: formData.get("firstName") as string,
+      lastName: formData.get("lastName") as string,
+      email: formData.get("email") as string,
+      phone: (formData.get("phone") as string) || undefined,
+      message: formData.get("message") as string,
+    }
 
     try {
-      const result = await sendContactEmail(formData)
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+
+      const result = await response.json()
 
       if (result.success) {
         setIsSuccess(true)
@@ -88,7 +102,6 @@ export function ContactForm() {
                 <Label htmlFor="phone">Phone Number</Label>
                 <Input id="phone" name="phone" type="tel" placeholder="+88017 0000-0000" className="h-12" />
               </div>
-
               <div className="space-y-2">
                 <Label htmlFor="message">Your Message *</Label>
                 <Textarea

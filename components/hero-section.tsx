@@ -79,38 +79,40 @@ export function HeroSection() {
         </div>
       ))}
 
-      {/* Decorative elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
+      {/* Decorative elements - Hide on mobile */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-[100px] animate-pulse hidden md:block" />
       <div
-        className="absolute bottom-20 right-10 w-96 h-96 bg-sky/20 rounded-full blur-[120px] animate-pulse"
+        className="absolute bottom-20 right-10 w-96 h-96 bg-sky/20 rounded-full blur-[120px] animate-pulse hidden md:block"
         style={{ animationDelay: "1s" }}
       />
 
-      {/* Content */}
-      <div className="relative z-10 h-full flex items-center md:px-20 px-4">
-        <div className="container mx-auto px-4">
+      {/* Content - Reduced padding on mobile */}
+      <div className="relative z-10 h-full flex items-center px-3 md:px-20">
+        <div className="container mx-auto px-3 md:px-4">
           <div className="max-w-4xl">
-            {/* Location badge */}
-            <div className="overflow-hidden mb-6 ">
+            {/* Location badge - Smaller on mobile */}
+            <div className="overflow-hidden mb-4 md:mb-6">
               <div
                 key={`location-${currentSlide}`}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/10 backdrop-blur-md border border-card/20 animate-fade-in-up"
+                className="inline-flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-card/10 backdrop-blur-md border border-card/20 animate-fade-in-up"
               >
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span className="text-card/90 text-sm font-medium tracking-wide">{slides[currentSlide].location}</span>
+                <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-primary animate-pulse" />
+                <span className="text-card/90 text-xs md:text-sm font-medium tracking-wide">
+                  {slides[currentSlide].location}
+                </span>
               </div>
             </div>
 
-            {/* Main title */}
-            <div className="overflow-hidden mb-6">
+            {/* Main title - Smaller text and spacing on mobile */}
+            <div className="overflow-hidden mb-4 md:mb-6">
               <h1
                 key={`title-${currentSlide}`}
-                className="text-4xl md:text-6xl lg:text-7xl font-bold text-card leading-[1.1] animate-fade-in-up text-balance"
+                className="text-3xl md:text-6xl lg:text-7xl font-bold text-card leading-[1.1] animate-fade-in-up text-balance"
               >
                 {slides[currentSlide].title.split(" ").map((word, i) => (
                   <span
                     key={i}
-                    className={cn("inline-block mr-4", word === "World" && "text-primary")}
+                    className={cn("inline-block mr-2 md:mr-4", word === "World" && "text-primary")}
                     style={{ animationDelay: `${i * 100}ms` }}
                   >
                     {word}
@@ -119,25 +121,28 @@ export function HeroSection() {
               </h1>
             </div>
 
-            {/* Subtitle */}
-            <div className="overflow-hidden mb-10">
+            {/* Subtitle - Smaller on mobile */}
+            <div className="overflow-hidden mb-6 md:mb-10">
               <p
                 key={`subtitle-${currentSlide}`}
-                className="text-lg md:text-xl text-card/80 max-w-2xl animate-fade-in-up leading-relaxed"
+                className="text-sm md:text-xl text-card/80 max-w-2xl animate-fade-in-up leading-relaxed"
                 style={{ animationDelay: "300ms" }}
               >
                 {slides[currentSlide].subtitle}
               </p>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4 animate-fade-in-up" style={{ animationDelay: "400ms" }}>
+            {/* CTA Buttons - Tighter gap and smaller buttons on mobile */}
+            <div
+              className="flex flex-wrap items-center gap-2 md:gap-4 animate-fade-in-up"
+              style={{ animationDelay: "400ms" }}
+            >
               <Button
                 size="lg"
                 className={cn(
                   "group relative overflow-hidden",
                   "bg-primary hover:bg-primary/90 text-primary-foreground",
-                  "rounded-full px-8 py-6 text-base font-semibold",
+                  "rounded-full px-5 md:px-8 py-4 md:py-6 text-sm md:text-base font-semibold",
                   "shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40",
                   "transition-all duration-300 hover:scale-[1.02]",
                 )}
@@ -152,30 +157,32 @@ export function HeroSection() {
                   "group border-2 border-card/40 text-card",
                   "bg-card/5 backdrop-blur-sm",
                   "hover:bg-card hover:text-foreground hover:border-card",
-                  "rounded-full px-8 py-6 text-base font-semibold",
+                  "rounded-full px-5 md:px-8 py-4 md:py-6 text-sm md:text-base font-semibold",
                   "transition-all duration-300",
                 )}
               >
                 Book Now
               </Button>
-              <button className="group flex items-center gap-3 ml-4">
-                <span className="flex items-center justify-center w-14 h-14 rounded-full bg-card/10 backdrop-blur-md border border-card/20 group-hover:bg-card group-hover:scale-110 transition-all duration-300">
-                  <Play className="h-5 w-5 text-card group-hover:text-primary fill-current ml-0.5" />
+              <button className="group hidden sm:flex items-center gap-2 md:gap-3 ml-2 md:ml-4">
+                <span className="flex items-center justify-center w-10 h-10 md:w-14 md:h-14 rounded-full bg-card/10 backdrop-blur-md border border-card/20 group-hover:bg-card group-hover:scale-110 transition-all duration-300">
+                  <Play className="h-4 w-4 md:h-5 md:w-5 text-card group-hover:text-primary fill-current ml-0.5" />
                 </span>
-                <span className="text-card/80 font-medium group-hover:text-card transition-colors">Watch Video</span>
+                <span className="text-card/80 text-sm md:text-base font-medium group-hover:text-card transition-colors">
+                  Watch Video
+                </span>
               </button>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Navigation Arrows - Enhanced */}
+      {/* Navigation Arrows - Smaller and closer to edges on mobile */}
       <button
         onClick={prevSlide}
         disabled={isTransitioning}
         className={cn(
-          "absolute left-6 md:left-10 top-1/2 -translate-y-1/2 z-20",
-          "w-12 h-12 md:w-14 md:h-14 rounded-full",
+          "absolute left-2 md:left-10 top-1/2 -translate-y-1/2 z-20",
+          "w-10 h-10 md:w-14 md:h-14 rounded-full",
           "bg-card/10 backdrop-blur-md border border-card/20",
           "text-card hover:bg-card hover:text-foreground",
           "flex items-center justify-center",
@@ -183,14 +190,14 @@ export function HeroSection() {
           "disabled:opacity-50 disabled:pointer-events-none",
         )}
       >
-        <ChevronLeft className="h-6 w-6" />
+        <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
       </button>
       <button
         onClick={nextSlide}
         disabled={isTransitioning}
         className={cn(
-          "absolute right-6 md:right-10 top-1/2 -translate-y-1/2 z-20",
-          "w-12 h-12 md:w-14 md:h-14 rounded-full",
+          "absolute right-2 md:right-10 top-1/2 -translate-y-1/2 z-20",
+          "w-10 h-10 md:w-14 md:h-14 rounded-full",
           "bg-card/10 backdrop-blur-md border border-card/20",
           "text-card hover:bg-card hover:text-foreground",
           "flex items-center justify-center",
@@ -198,19 +205,19 @@ export function HeroSection() {
           "disabled:opacity-50 disabled:pointer-events-none",
         )}
       >
-        <ChevronRight className="h-6 w-6" />
+        <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
       </button>
 
-      {/* Slide Indicators - Enhanced */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
+      {/* Slide Indicators - Smaller on mobile */}
+      <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 md:gap-3">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => handleSlideChange(index)}
             disabled={isTransitioning}
             className={cn(
-              "relative h-3 rounded-full transition-all duration-500 overflow-hidden",
-              index === currentSlide ? "w-10 bg-primary" : "w-3 bg-card/40 hover:bg-card/60",
+              "relative h-2 md:h-3 rounded-full transition-all duration-500 overflow-hidden",
+              index === currentSlide ? "w-7 md:w-10 bg-primary" : "w-2 md:w-3 bg-card/40 hover:bg-card/60",
             )}
           >
             {index === currentSlide && (

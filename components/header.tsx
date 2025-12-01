@@ -36,16 +36,16 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         showSolidHeader
-          ? "bg-card/98 backdrop-blur-xl shadow-lg shadow-foreground/5 py-3"
-          : "bg-linear-to-b from-foreground/20 to-transparent py-5",
+          ? "bg-card/98 backdrop-blur-xl shadow-lg shadow-foreground/5 py-2 md:py-3"
+          : "bg-linear-to-b from-foreground/20 to-transparent py-3 md:py-5",
       )}
     >
-      <div className="container mx-auto md:px-20 px-4 flex items-center justify-between">
+      <div className="container mx-auto px-3 md:px-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
+        <Link href="/" className="flex items-center gap-2 md:gap-3 group">
           <div
             className={cn(
-              "relative p-2.5 rounded-xl transition-all duration-500 overflow-hidden",
+              "relative p-2 md:p-2.5 rounded-lg md:rounded-xl transition-all duration-500 overflow-hidden",
               showSolidHeader
                 ? "bg-linear-to-br from-primary to-primary/80 shadow-lg shadow-primary/25"
                 : "bg-card/20 backdrop-blur-md border border-card/20",
@@ -53,7 +53,7 @@ export function Header() {
           >
             <Plane
               className={cn(
-                "h-6 w-6 transition-all duration-300 group-hover:rotate-12",
+                "h-5 w-5 md:h-6 md:w-6 transition-all duration-300 group-hover:rotate-12",
                 showSolidHeader ? "text-primary-foreground" : "text-card",
               )}
             />
@@ -62,7 +62,7 @@ export function Header() {
           <div className="flex flex-col">
             <span
               className={cn(
-                "text-xl font-bold transition-colors duration-300 leading-tight",
+                "text-lg md:text-xl font-bold transition-colors duration-300 leading-tight",
                 showSolidHeader ? "text-foreground" : "text-card",
               )}
             >
@@ -70,7 +70,7 @@ export function Header() {
             </span>
             <span
               className={cn(
-                "text-[10px] uppercase tracking-[0.2em] font-medium transition-colors duration-300",
+                "text-[9px] md:text-[10px] uppercase tracking-[0.15em] md:tracking-[0.2em] font-medium transition-colors duration-300",
                 showSolidHeader ? "text-muted-foreground" : "text-card/70",
               )}
             >
@@ -116,8 +116,8 @@ export function Header() {
               "hover:shadow-xl hover:shadow-primary/30",
               "transition-all duration-300 hover:scale-[1.02]",
             )}
-
-            asChild>
+            asChild
+          >
             <Link href="/contact">
               <span className="relative z-10">Book Now</span>
               <div className="absolute inset-0 bg-linear-to-r from-transparent via-card/20 to-transparent -translate-x-full hover:translate-x-full transition-transform duration-700" />
@@ -132,41 +132,41 @@ export function Header() {
               variant="ghost"
               size="icon"
               className={cn(
-                "rounded-xl",
+                "rounded-lg md:rounded-xl h-9 w-9 md:h-10 md:w-10",
                 showSolidHeader ? "text-foreground hover:bg-secondary" : "text-card hover:bg-card/10",
               )}
             >
-              <Menu className="h-6 w-6" />
+              <Menu className="h-5 w-5 md:h-6 md:w-6" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-80 bg-card border-l border-border/50">
+          <SheetContent side="right" className="w-72 md:w-80 bg-card border-l border-border/50">
             <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-            <div className="flex flex-col h-full py-6">
-              <div className="flex items-center gap-3 mb-10">
-                <div className="p-2.5 rounded-xl bg-linear-to-br from-primary to-primary/80 shadow-lg shadow-primary/25">
-                  <Plane className="h-6 w-6 text-primary-foreground" />
+            <div className="flex flex-col h-full py-4 md:py-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-6 md:mb-10">
+                <div className="p-2 md:p-2.5 rounded-lg md:rounded-xl bg-linear-to-br from-primary to-primary/80 shadow-lg shadow-primary/25">
+                  <Plane className="h-5 w-5 md:h-6 md:w-6 text-primary-foreground" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xl font-bold text-foreground leading-tight">
+                  <span className="text-lg md:text-xl font-bold text-foreground leading-tight">
                     Global<span className="text-primary">Voyage</span>
                   </span>
-                  <span className="text-[10px] uppercase tracking-[0.2em] font-medium text-muted-foreground">
+                  <span className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] md:tracking-[0.2em] font-medium text-muted-foreground">
                     Travel & Visa
                   </span>
                 </div>
               </div>
-              <nav className="flex flex-col gap-1">
+              <nav className="flex flex-col gap-0.5 md:gap-1">
                 {navLinks.map((link, index) => (
                   <Link
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
                     className={cn(
-                      "text-foreground text-base font-medium py-3.5 px-4 rounded-xl transition-all duration-300",
+                      "text-foreground text-sm md:text-base font-medium py-3 md:py-3.5 px-3 md:px-4 rounded-lg md:rounded-xl transition-all duration-300",
                       "hover:bg-linear-to-r hover:from-primary/10 hover:to-transparent",
                       "animate-fade-in-right",
                       pathname === link.href &&
-                      "bg-linear-to-r from-primary/15 to-transparent text-primary border-l-2 border-primary",
+                        "bg-linear-to-r from-primary/15 to-transparent text-primary border-l-2 border-primary",
                     )}
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
@@ -174,9 +174,14 @@ export function Header() {
                   </Link>
                 ))}
               </nav>
-              <div className="mt-auto pt-6 border-t border-border/50">
-                <Button className="w-full bg-linear-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground rounded-xl h-12 font-semibold shadow-lg shadow-primary/20">
-                  Book
+              <div className="mt-auto pt-4 md:pt-6 border-t border-border/50">
+                <Button
+                  className="w-full bg-linear-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground rounded-lg md:rounded-xl h-11 md:h-12 font-semibold shadow-lg shadow-primary/20"
+                  asChild
+                >
+                  <Link href="/contact" onClick={() => setIsOpen(false)}>
+                    Book Now
+                  </Link>
                 </Button>
               </div>
             </div>

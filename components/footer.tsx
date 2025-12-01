@@ -36,22 +36,24 @@ export function Footer() {
 
       {/* Newsletter Section */}
       <div className="border-b border-white/10 relative">
-        <div className="container mx-auto px-4 py-14 md:px-20">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="container mx-auto px-3 md:px-20 py-8 md:py-14">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-5 md:gap-8">
             <div className="text-center lg:text-left">
-              <h3 className="text-2xl md:text-3xl font-bold mb-3">
+              <h3 className="text-xl md:text-3xl font-bold mb-2 md:mb-3">
                 Subscribe to Our <span className="text-primary">Newsletter</span>
               </h3>
-              <p className="text-white/60">Get exclusive travel deals and updates straight to your inbox</p>
+              <p className="text-white/60 text-sm md:text-base">
+                Get exclusive travel deals and updates straight to your inbox
+              </p>
             </div>
-            <div className="flex w-full lg:w-auto gap-3">
+            <div className="flex flex-col sm:flex-row w-full lg:w-auto gap-2 md:gap-3">
               <Input
                 placeholder="Enter your email"
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/40 h-14 w-full lg:w-80 rounded-full focus:bg-white/15 focus:border-primary transition-all"
+                className="bg-white/10 border-white/20 text-white placeholder:text-white/40 h-11 md:h-14 w-full lg:w-80 rounded-full focus:bg-white/15 focus:border-primary transition-all text-sm md:text-base"
               />
-              <Button className="bg-linear-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground rounded-full h-14 px-8 shrink-0 font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all">
+              <Button className="bg-linear-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground rounded-full h-11 md:h-14 px-5 md:px-8 shrink-0 font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all text-sm md:text-base">
                 Subscribe
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-2 h-3.5 w-3.5 md:h-4 md:w-4" />
               </Button>
             </div>
           </div>
@@ -59,26 +61,28 @@ export function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div className="container mx-auto px-4 md:px-20 py-16 relative">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="container mx-auto px-3 md:px-20 py-10 md:py-16 relative">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Brand */}
           <div>
-            <Link href="/" className="inline-flex items-center gap-3 mb-6 group">
-              <div className="p-2.5 rounded-xl bg-linear-to-br from-primary to-primary/80 shadow-lg shadow-primary/25 group-hover:shadow-xl group-hover:shadow-primary/30 transition-all">
-                <Plane className="h-6 w-6 text-primary-foreground" />
+            <Link href="/" className="inline-flex items-center gap-2 md:gap-3 mb-4 md:mb-6 group">
+              <div className="p-2 md:p-2.5 rounded-lg md:rounded-xl bg-linear-to-br from-primary to-primary/80 shadow-lg shadow-primary/25 group-hover:shadow-xl group-hover:shadow-primary/30 transition-all">
+                <Plane className="h-5 w-5 md:h-6 md:w-6 text-primary-foreground" />
               </div>
               <div className="flex flex-col">
-                <span className="text-xl font-bold leading-tight">
+                <span className="text-lg md:text-xl font-bold leading-tight">
                   Global<span className="text-primary">Voyage</span>
                 </span>
-                <span className="text-[10px] uppercase tracking-[0.2em] font-medium text-white/50">Travel & Visa</span>
+                <span className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] md:tracking-[0.2em] font-medium text-white/50">
+                  Travel & Visa
+                </span>
               </div>
             </Link>
-            <p className="text-white/60 leading-relaxed mb-6">
+            <p className="text-white/60 leading-relaxed text-sm md:text-base mb-4 md:mb-6">
               Your trusted partner for visa processing, tour packages, and unforgettable travel experiences worldwide.
               Making travel dreams come true since 2009.
             </p>
-            <div className="flex gap-3">
+            <div className="flex gap-2 md:gap-3">
               {[
                 { icon: Facebook, href: "#" },
                 { icon: Instagram, href: "#" },
@@ -88,9 +92,9 @@ export function Footer() {
                 <a
                   key={index}
                   href={social.href}
-                  className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-primary hover:border-primary hover:scale-110 transition-all duration-300"
+                  className="p-2.5 md:p-3 rounded-lg md:rounded-xl bg-white/5 border border-white/10 hover:bg-primary hover:border-primary hover:scale-110 transition-all duration-300"
                 >
-                  <social.icon className="h-5 w-5" />
+                  <social.icon className="h-4 w-4 md:h-5 md:w-5" />
                 </a>
               ))}
             </div>
@@ -98,16 +102,16 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-bold mb-6 relative inline-block">
+            <h4 className="text-base md:text-lg font-bold mb-4 md:mb-6 relative inline-block">
               Quick Links
-              <span className="absolute -bottom-2 left-0 w-10 h-1 bg-linear-to-r from-primary to-primary/50 rounded-full" />
+              <span className="absolute -bottom-2 left-0 w-8 md:w-10 h-1 bg-linear-to-r from-primary to-primary/50 rounded-full" />
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2 md:space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/60 hover:text-primary hover:translate-x-2 transition-all inline-flex items-center gap-2 group"
+                    className="text-white/60 hover:text-primary hover:translate-x-2 transition-all inline-flex items-center gap-2 group text-sm md:text-base"
                   >
                     <ArrowRight className="h-3 w-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                     {link.label}
@@ -119,14 +123,16 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-bold mb-6 relative inline-block">
+            <h4 className="text-base md:text-lg font-bold mb-4 md:mb-6 relative inline-block">
               Our Services
-              <span className="absolute -bottom-2 left-0 w-10 h-1 bg-linear-to-r from-primary to-primary/50 rounded-full" />
+              <span className="absolute -bottom-2 left-0 w-8 md:w-10 h-1 bg-linear-to-r from-primary to-primary/50 rounded-full" />
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2 md:space-y-3">
               {services.map((service) => (
                 <li key={service}>
-                  <span className="text-white/60 hover:text-primary transition-colors cursor-pointer">{service}</span>
+                  <span className="text-white/60 hover:text-primary transition-colors cursor-pointer text-sm md:text-base">
+                    {service}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -134,32 +140,32 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-bold mb-6 relative inline-block">
+            <h4 className="text-base md:text-lg font-bold mb-4 md:mb-6 relative inline-block">
               Contact Info
-              <span className="absolute -bottom-2 left-0 w-10 h-1 bg-linear-to-r from-primary to-primary/50 rounded-full" />
+              <span className="absolute -bottom-2 left-0 w-8 md:w-10 h-1 bg-linear-to-r from-primary to-primary/50 rounded-full" />
             </h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-4 group">
-                <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 group-hover:bg-primary group-hover:border-primary transition-all shrink-0">
-                  <MapPin className="h-4 w-4" />
+            <ul className="space-y-3 md:space-y-4">
+              <li className="flex items-start gap-3 md:gap-4 group">
+                <div className="p-2 md:p-2.5 rounded-lg md:rounded-xl bg-white/5 border border-white/10 group-hover:bg-primary group-hover:border-primary transition-all shrink-0">
+                  <MapPin className="h-3.5 w-3.5 md:h-4 md:w-4" />
                 </div>
-                <span className="text-white/60 leading-relaxed">
+                <span className="text-white/60 leading-relaxed text-sm md:text-base">
                   123 Travel Plaza, Suite 456
                   <br />
                   New York, NY 10001
                 </span>
               </li>
-              <li className="flex items-center gap-4 group">
-                <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 group-hover:bg-primary group-hover:border-primary transition-all shrink-0">
-                  <Phone className="h-4 w-4" />
+              <li className="flex items-center gap-3 md:gap-4 group">
+                <div className="p-2 md:p-2.5 rounded-lg md:rounded-xl bg-white/5 border border-white/10 group-hover:bg-primary group-hover:border-primary transition-all shrink-0">
+                  <Phone className="h-3.5 w-3.5 md:h-4 md:w-4" />
                 </div>
-                <span className="text-white/60">+1 234 567 8900</span>
+                <span className="text-white/60 text-sm md:text-base">+1 234 567 8900</span>
               </li>
-              <li className="flex items-center gap-4 group">
-                <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 group-hover:bg-primary group-hover:border-primary transition-all shrink-0">
-                  <Mail className="h-4 w-4" />
+              <li className="flex items-center gap-3 md:gap-4 group">
+                <div className="p-2 md:p-2.5 rounded-lg md:rounded-xl bg-white/5 border border-white/10 group-hover:bg-primary group-hover:border-primary transition-all shrink-0">
+                  <Mail className="h-3.5 w-3.5 md:h-4 md:w-4" />
                 </div>
-                <span className="text-white/60">info@globalvoyage.com</span>
+                <span className="text-white/60 text-sm md:text-base">info@globalvoyage.com</span>
               </li>
             </ul>
           </div>
@@ -168,15 +174,17 @@ export function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <div className="container mx-auto px-4 md:px-20 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-white/40 text-sm text-center md:text-left">© 2025 GlobalVoyage. All rights reserved.</p>
-            <div className="flex flex-wrap justify-center gap-6">
+        <div className="container mx-auto px-3 md:px-20 py-4 md:py-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
+            <p className="text-white/40 text-xs md:text-sm text-center md:text-left">
+              © 2025 GlobalVoyage. All rights reserved.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
               {legal.map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="text-sm text-white/40 hover:text-primary transition-colors"
+                  className="text-xs md:text-sm text-white/40 hover:text-primary transition-colors"
                 >
                   {link.label}
                 </Link>
