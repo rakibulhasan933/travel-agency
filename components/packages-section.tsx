@@ -90,33 +90,39 @@ export function PackagesSection() {
   })
 
   return (
-    <section id="packages" className="py-24 lg:py-32 bg-secondary/30 relative overflow-hidden md:px-20 px-4" ref={ref}>
+    <section
+      id="packages"
+      className="py-12 md:py-24 lg:py-32 bg-secondary/30 relative overflow-hidden px-3 md:px-20"
+      ref={ref}
+    >
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px]" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-sky/5 rounded-full blur-[120px]" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] hidden md:block" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-sky/5 rounded-full blur-[120px] hidden md:block" />
 
-      <div className="container mx-auto px-4 relative">
+      <div className="container mx-auto px-0 md:px-4 relative">
         {/* Header */}
         <div
           className={cn(
-            "text-center max-w-3xl mx-auto mb-16 transition-all duration-700",
+            "text-center max-w-3xl mx-auto mb-8 md:mb-16 transition-all duration-700",
             inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
           )}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-primary text-sm font-semibold tracking-wide uppercase">Popular Packages</span>
+          <div className="inline-flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-primary/10 border border-primary/20 mb-4 md:mb-6">
+            <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-primary animate-pulse" />
+            <span className="text-primary text-xs md:text-sm font-semibold tracking-wide uppercase">
+              Popular Packages
+            </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 md:mb-6 text-balance">
             Explore Our Best <span className="text-primary">Travel Deals</span>
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
+          <p className="text-muted-foreground text-sm md:text-lg leading-relaxed">
             Handpicked destinations with exclusive packages designed for unforgettable experiences
           </p>
         </div>
 
         {/* Packages Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {packages.map((pkg, index) => (
             <Card
               key={index}
@@ -139,49 +145,49 @@ export function PackagesSection() {
                 <div className="absolute inset-0 bg-linear-to-t from-foreground/70 via-foreground/20 to-transparent" />
 
                 {pkg.featured && (
-                  <Badge className="absolute top-4 left-4 bg-linear-to-r from-primary to-primary/90 text-primary-foreground font-semibold px-3 py-1">
+                  <Badge className="absolute top-3 md:top-4 left-3 md:left-4 bg-linear-to-r from-primary to-primary/90 text-primary-foreground font-semibold text-xs md:text-sm px-2 md:px-3 py-0.5 md:py-1">
                     Featured
                   </Badge>
                 )}
 
-                <div className="absolute top-4 right-4 flex items-center gap-1 bg-card/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-                  <Star className="h-4 w-4 text-gold fill-current" />
-                  <span className="text-sm font-bold text-foreground">{pkg.rating}</span>
-                  <span className="text-xs text-muted-foreground">({pkg.reviews})</span>
+                <div className="absolute top-3 md:top-4 right-3 md:right-4 flex items-center gap-0.5 md:gap-1 bg-card/95 backdrop-blur-sm px-2 md:px-3 py-1 md:py-1.5 rounded-full shadow-lg">
+                  <Star className="h-3 w-3 md:h-4 md:w-4 text-gold fill-current" />
+                  <span className="text-xs md:text-sm font-bold text-foreground">{pkg.rating}</span>
+                  <span className="text-[10px] md:text-xs text-muted-foreground">({pkg.reviews})</span>
                 </div>
 
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="flex items-center gap-2 text-card text-sm font-medium">
-                    <MapPin className="h-4 w-4" />
+                <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 right-3 md:right-4">
+                  <div className="flex items-center gap-1.5 md:gap-2 text-card text-xs md:text-sm font-medium">
+                    <MapPin className="h-3 w-3 md:h-4 md:w-4" />
                     <span>{pkg.location}</span>
                   </div>
                 </div>
               </div>
 
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+              <CardContent className="p-4 md:p-6">
+                <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 md:mb-3 group-hover:text-primary transition-colors duration-300">
                   {pkg.title}
                 </h3>
 
-                <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-5">
-                  <div className="flex items-center gap-1.5">
-                    <Calendar className="h-4 w-4 text-primary/70" />
+                <div className="flex flex-wrap gap-3 md:gap-4 text-xs md:text-sm text-muted-foreground mb-4 md:mb-5">
+                  <div className="flex items-center gap-1 md:gap-1.5">
+                    <Calendar className="h-3 w-3 md:h-4 md:w-4 text-primary/70" />
                     <span>{pkg.duration}</span>
                   </div>
-                  <div className="flex items-center gap-1.5">
-                    <Users className="h-4 w-4 text-primary/70" />
+                  <div className="flex items-center gap-1 md:gap-1.5">
+                    <Users className="h-3 w-3 md:h-4 md:w-4 text-primary/70" />
                     <span>{pkg.groupSize}</span>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between pt-5 border-t border-border">
+                <div className="flex items-center justify-between pt-4 md:pt-5 border-t border-border">
                   <div>
-                    <span className="text-muted-foreground text-sm line-through">${pkg.originalPrice}</span>
-                    <div className="text-2xl font-bold text-primary">${pkg.price}</div>
+                    <span className="text-muted-foreground text-xs md:text-sm line-through">${pkg.originalPrice}</span>
+                    <div className="text-xl md:text-2xl font-bold text-primary">${pkg.price}</div>
                   </div>
-                  <Button className="bg-linear-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground rounded-full group/btn shadow-lg shadow-primary/20">
+                  <Button className="bg-linear-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground rounded-full group/btn shadow-lg shadow-primary/20 text-xs md:text-sm px-3 md:px-4 h-9 md:h-10">
                     Book Now
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-0.5 transition-transform" />
+                    <ArrowRight className="ml-1.5 md:ml-2 h-3 w-3 md:h-4 md:w-4 group-hover/btn:translate-x-0.5 transition-transform" />
                   </Button>
                 </div>
               </CardContent>
@@ -192,17 +198,17 @@ export function PackagesSection() {
         {/* View All Button */}
         <div
           className={cn(
-            "text-center mt-14 transition-all duration-700 delay-600",
+            "text-center mt-8 md:mt-14 transition-all duration-700 delay-600",
             inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
           )}
         >
           <Button
             size="lg"
             variant="outline"
-            className="rounded-full px-10 py-6 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent font-semibold text-base transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+            className="rounded-full px-6 md:px-10 py-4 md:py-6 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent font-semibold text-sm md:text-base transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
           >
             View All Packages
-            <ArrowRight className="ml-2 h-5 w-5" />
+            <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
           </Button>
         </div>
       </div>
