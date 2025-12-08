@@ -3,6 +3,7 @@
 import { AnimatedSection } from "@/components/ui/animated-section"
 import { Button } from "@/components/ui/button"
 import { Target, Eye, Heart, Globe, Shield, Sparkles, ArrowRight, CheckCircle2 } from "lucide-react"
+import Link from "next/link"
 
 const values = [
   {
@@ -91,7 +92,7 @@ export function AboutContent() {
 
             <AnimatedSection direction="right" delay={200}>
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                Founded in 2009, GlobalVoyage began with a simple vision: to make world-class travel accessible to
+                Founded in 2009, Mumo Travels & Tours began with a simple vision: to make world-class travel accessible to
                 everyone. What started as a small consultancy has grown into a trusted name in the travel industry,
                 serving over 50,000 happy travelers worldwide.
               </p>
@@ -114,9 +115,11 @@ export function AboutContent() {
             </AnimatedSection>
 
             <AnimatedSection direction="right" delay={400}>
-              <Button size="lg" className="rounded-full px-8 group">
-                Start Your Journey
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              <Button size="lg" className="rounded-full px-8 group" asChild>
+                <Link href="/contact">
+                  Start Your Journey
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
             </AnimatedSection>
           </div>
