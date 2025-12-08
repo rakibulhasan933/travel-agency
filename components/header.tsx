@@ -66,7 +66,7 @@ export function Header() {
                 showSolidHeader ? "text-foreground" : "text-card",
               )}
             >
-              Global<span className="text-primary">Voyage</span>
+              Mu<span className="text-primary">mo</span>
             </span>
             <span
               className={cn(
@@ -74,7 +74,7 @@ export function Header() {
                 showSolidHeader ? "text-muted-foreground" : "text-card/70",
               )}
             >
-              Travel & Visa
+              Travels & Tours
             </span>
           </div>
         </Link>
@@ -88,8 +88,8 @@ export function Header() {
               className={cn(
                 "relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group",
                 showSolidHeader
-                  ? "text-foreground/80 hover:text-foreground hover:bg-secondary"
-                  : "text-card/90 hover:text-card hover:bg-card/10",
+                  ? "text-foreground/80 hover:text-foreground"
+                  : "text-card/90",
                 pathname === link.href && (showSolidHeader ? "text-primary bg-primary/5" : "text-card bg-card/15"),
               )}
             >
@@ -148,10 +148,10 @@ export function Header() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-lg md:text-xl font-bold text-foreground leading-tight">
-                    Global<span className="text-primary">Voyage</span>
+                    Mu<span className="text-primary">mo</span>
                   </span>
                   <span className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] md:tracking-[0.2em] font-medium text-muted-foreground">
-                    Travel & Visa
+                    Travels & Tours
                   </span>
                 </div>
               </div>
@@ -166,7 +166,7 @@ export function Header() {
                       "hover:bg-linear-to-r hover:from-primary/10 hover:to-transparent",
                       "animate-fade-in-right",
                       pathname === link.href &&
-                        "bg-linear-to-r from-primary/15 to-transparent text-primary border-l-2 border-primary",
+                      "bg-linear-to-r from-primary/15 to-transparent text-primary border-l-2 border-primary",
                     )}
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
