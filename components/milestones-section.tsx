@@ -25,8 +25,8 @@ const stats = [
 
 export function MilestonesSection() {
   return (
-    <section className="py-20 lg:py-32 bg-linear-to-b from-background to-secondary/30">
-      <div className="container mx-auto px-4">
+    <section className="md:py-20 py-4 lg:py-32 bg-linear-to-b from-background to-secondary/30">
+      <div className="container mx-auto md:px-4 px-1">
         {/* Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
           {stats.map((stat, index) => (
