@@ -18,7 +18,6 @@ export default function BlogPage() {
         breadcrumb="Blog"
       />
       <BlogGrid />
-      <BlogNewsletter />
     </main>
   )
 }
