@@ -129,10 +129,10 @@ export async function POST(request: Request) {
 
     // Send email
     await transporter.sendMail({
-      from: `"GlobalVoyage" <${process.env.SMTP_USER}>`,
+      from: `"Momu Travels & Tours" <${process.env.SMTP_USER}>`,
       to: process.env.CONTACT_EMAIL || process.env.SMTP_USER,
       replyTo: data.email,
-      subject: `[GlobalVoyage] from ${data.firstName} ${data.lastName}`,
+      subject: `[Momu Travels & Tours] from ${data.firstName} ${data.lastName}`,
       html: emailHtml,
     })
 

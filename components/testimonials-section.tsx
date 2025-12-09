@@ -98,7 +98,7 @@ export function TestimonialsSection() {
   }, [maxIndex])
 
   return (
-    <section className="py-12 md:py-20 lg:py-32 bg-secondary/30" ref={ref}>
+    <section className="py-4 md:py-10  bg-secondary/30" ref={ref}>
       <div className="container mx-auto px-3 md:px-20">
         <div
           className={cn(

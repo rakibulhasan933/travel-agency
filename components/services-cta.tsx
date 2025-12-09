@@ -3,6 +3,7 @@
 import { AnimatedSection } from "@/components/ui/animated-section"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Phone, MessageCircle } from "lucide-react"
+import Link from "next/link"
 
 export function ServicesCTA() {
   return (
@@ -25,21 +26,30 @@ export function ServicesCTA() {
 
           <AnimatedSection direction="up" delay={200}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="lg" className="bg-white text-foreground hover:bg-white/90 rounded-full px-8 group">
-                Get Free Consultation
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              <Button size="lg" className="bg-white text-foreground hover:bg-white/90 rounded-full px-8 group" asChild>
+                <Link href="/contact">
+                  Get a Free Consultation
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="border-white/30 text-white bg-white/10 hover:bg-white/20 rounded-full px-8"
               >
-                <Phone className="mr-2 h-4 w-4" />
-                Call Now
+                <Link href="tel:+8801332846700" className="text-lg font-semibold flex items-center">
+                  <Phone className="mr-2 h-4 w-4" />
+                  Call Now
+                </Link>
               </Button>
-              <Button size="lg" className="bg-[#25D366] hover:bg-[#20BD5A] text-white rounded-full px-8">
-                <MessageCircle className="mr-2 h-4 w-4" />
-                WhatsApp
+              <Button size="lg" className="bg-[#25D366] hover:bg-[#20BD5A] text-white rounded-full px-8" asChild>
+                <Link
+                  href="https://wa.me/8801332846700"
+                  className="text-lg font-semibold"
+                >
+                  <MessageCircle className="mr-2 h-4 w-4" />
+                  WhatsApp
+                </Link>
               </Button>
             </div>
           </AnimatedSection>

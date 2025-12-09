@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="hydrated">
+    <html lang="en" className="hydrated" data-scroll-behavior="smooth">
       <head>
         <Script id="facebook-pixel" strategy="afterInteractive">
           {`

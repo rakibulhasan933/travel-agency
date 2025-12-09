@@ -8,8 +8,8 @@ import { servicesData } from "@/lib/services-data"
 
 export function ServicesGrid() {
   return (
-    <section className="py-20 lg:py-32 bg-background">
-      <div className="container mx-auto px-4">
+    <section className="md:py-10 py-4 lg:py-32 bg-background">
+      <div className="container mx-auto md:px-4 px-1">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <AnimatedSection direction="up">
             <p className="text-primary font-semibold tracking-widest uppercase mb-4 text-sm">What We Offer</p>
@@ -29,12 +29,12 @@ export function ServicesGrid() {
               <div className="group relative h-full p-8 rounded-3xl bg-card border border-border hover:border-transparent hover:shadow-2xl transition-all duration-500 overflow-hidden">
                 {/* Gradient Background on Hover */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                  className={`absolute inset-0 bg-linear-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
                 />
 
                 <div className="relative">
                   <div
-                    className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${service.color} mb-6 group-hover:scale-110 transition-transform duration-300`}
+                    className={`inline-flex p-4 rounded-2xl bg-linear-to-br ${service.color} mb-6 group-hover:scale-110 transition-transform duration-300`}
                   >
                     <service.icon className="h-7 w-7 text-white" />
                   </div>
