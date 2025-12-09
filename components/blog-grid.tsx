@@ -106,15 +106,6 @@ export function BlogGrid() {
               </AnimatedSection>
             ))}
           </div>
-
-          {/* Load More */}
-          {otherPosts.length > 5 && (
-            <AnimatedSection direction="up" delay={400} className="text-center mt-10 lg:mt-12">
-              <Button size="lg" variant="outline" className="rounded-full px-8 bg-transparent">
-                Load More Articles
-              </Button>
-            </AnimatedSection>
-          )}
         </div>
       </section>
     </>

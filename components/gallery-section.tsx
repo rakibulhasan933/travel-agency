@@ -65,6 +65,8 @@ export function GallerySection() {
                 alt={image.alt}
                 width={800}
                 height={600}
+                fill={true}
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="w-full h-full object-cover aspect-square group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-linear-to-t from-foreground/80 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300" />
@@ -102,6 +104,8 @@ export function GallerySection() {
               alt={selectedImage.alt}
               width={1200}
               height={800}
+              fill={true}
+              sizes="(max-width: 768px) 100vw, 33vw"
               className="w-full max-h-[85vh] object-contain rounded-2xl"
             />
             <div className="absolute bottom-0 left-0 right-0 p-6 bg-linear-to-t from-foreground/80 to-transparent rounded-b-2xl">

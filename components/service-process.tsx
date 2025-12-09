@@ -32,12 +32,12 @@ const steps = [
 
 export function ServiceProcess() {
   return (
-    <section className="py-20 lg:py-32 bg-linear-to-b from-secondary/30 to-background relative overflow-hidden">
+    <section className="md:py-10 py-4  bg-linear-to-b from-secondary/30 to-background relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-sky/5 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-4 relative">
+      <div className="container mx-auto md:px-4 px-1 relative">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <AnimatedSection direction="up">
             <p className="text-primary font-semibold tracking-widest uppercase mb-4 text-sm">How It Works</p>

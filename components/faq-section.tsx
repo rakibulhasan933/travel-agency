@@ -54,7 +54,7 @@ export function FAQSection() {
   })
 
   return (
-    <section className="py-20 lg:py-32 bg-background" ref={ref}>
+    <section className="md:py-16 py-4 lg:py-32 bg-background" ref={ref}>
       <div className="container mx-auto px-4 md:px-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Left Side */}

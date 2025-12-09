@@ -40,8 +40,8 @@ const achievements = [
 
 export function AboutContent() {
   return (
-    <section className="py-20 lg:py-32 bg-background">
-      <div className="container mx-auto px-4">
+    <section className="md:py-20 py-4 lg:py-32 bg-background">
+      <div className="container mx-auto md:px-4 px-1">
         {/* Main About Content */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
           {/* Image Grid */}

@@ -140,6 +140,8 @@ export function PackagesSection() {
                   alt={pkg.title}
                   width={800}
                   height={600}
+                  fill={true}
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="w-full aspect-4/3 object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-foreground/70 via-foreground/20 to-transparent" />

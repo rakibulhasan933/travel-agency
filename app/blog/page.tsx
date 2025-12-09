@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { PageHeader } from "@/components/page-header"
 import { BlogGrid } from "@/components/blog-grid"
-import { BlogNewsletter } from "@/components/blog-newsletter"
 
 export const metadata: Metadata = {
   title: "Travel Blog | Mumo Travels - Travel Tips & Inspiration",
@@ -17,8 +16,9 @@ export default function BlogPage() {
         subtitle="Tips, guides, and inspiring stories for your next adventure"
         breadcrumb="Blog"
       />
-      <BlogGrid />
-      <BlogNewsletter />
+      <div className="md:mx-10 mx-1">
+        <BlogGrid />
+      </div>
     </main>
   )
 }
