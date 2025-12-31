@@ -25,7 +25,7 @@ export function ContactForm() {
     const data = {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
-      phone: (formData.get("phone") as string),
+      phone: formData.get("phone") as string,
       message: formData.get("message") as string,
     }
 
@@ -58,12 +58,12 @@ export function ContactForm() {
       <section className="md:py-20 py-10 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
-            <div className="bg-card rounded-2xl shadow-lg p-12 text-center">
+            <div className="bg-card rounded-2xl shadow-lg p-8 md:p-12 text-center">
               <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle className="w-10 h-10 text-green-600" />
               </div>
-              <h2 className="text-2xl font-bold text-foreground mb-4">Message Sent Successfully!</h2>
-              <p className="text-muted-foreground mb-8">
+              <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4">Message Sent Successfully!</h2>
+              <p className="text-sm md:text-base text-muted-foreground mb-8">
                 Thank you for contacting us. We've received your message and will get back to you within 24 hours.
               </p>
               <Button onClick={() => setIsSuccess(false)} variant="outline">
@@ -77,45 +77,73 @@ export function ContactForm() {
   }
 
   return (
-    <section className="md:py-20 mt-10 py-10 bg-muted/30">
-      <div className="container mx-auto md:px-4 px-4">
+    <section className="md:py-20 py-10 bg-muted/30">
+      <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
-          <div className="bg-card rounded-2xl shadow-lg p-2 md:p-12">
-            <form onSubmit={handleSubmit} className="md:space-y-6 space-y-2">
-
-              <div className="md:space-y-2 text-[12px] space-y-0.5">
-                <Label className=" " htmlFor="name">Name *</Label>
-                <Input id="name" name="name" placeholder="John" required className="md:h-12 h-6" />
+          <div className="bg-card rounded-2xl shadow-lg p-6 md:p-12">
+            {isMobile && (
+              <div className="mb-8 text-center">
+                <h2 className="text-2xl md:text-3xl font-bold mb-3 text-foreground">Get in Touch</h2>
+                <p className="text-sm md:text-base text-muted-foreground">
+                  We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+                </p>
+              </div>
+            )}
+            <form onSubmit={handleSubmit} className="space-y-3 md:space-y-6">
+              <div className="space-y-1">
+                <Label className="text-xs md:text-sm" htmlFor="name">
+                  Name *
+                </Label>
+                <Input id="name" name="name" placeholder="John" required className="h-9 md:h-12 text-sm md:text-base" />
               </div>
 
-
-              <div className="md:space-y-2 text-[12px] space-y-0.5">
-                <Label htmlFor="email">Email Address *</Label>
-                <Input id="email" name="email" type="email" placeholder="john@example.com" required className="md:h-12 h-6" />
+              <div className="space-y-1">
+                <Label className="text-xs md:text-sm" htmlFor="email">
+                  Email Address *
+                </Label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="john@example.com"
+                  required
+                  className="h-9 md:h-12 text-sm md:text-base"
+                />
               </div>
 
-              <div className="md:space-y-2 text-[12px] space-y-0.5">
-                <Label htmlFor="phone">Phone Number *</Label>
-                <Input id="phone" name="phone" type="tel" placeholder="+88017 0000-0000" className="md:h-12 h-6" />
+              <div className="space-y-1">
+                <Label className="text-xs md:text-sm" htmlFor="phone">
+                  Phone Number *
+                </Label>
+                <Input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="+88017 0000-0000"
+                  className="h-9 md:h-12 text-sm md:text-base"
+                />
               </div>
-              <div className="md:space-y-2 text-[12px] space-y-0.5">
-                <Label htmlFor="message">Your Message *</Label>
+
+              <div className="space-y-1">
+                <Label className="text-xs md:text-sm" htmlFor="message">
+                  Your Message *
+                </Label>
                 <Textarea
                   id="message"
                   name="message"
                   placeholder="Tell us how we can help you..."
                   required
-                  className="md:min-h-120 min-h-15 text-[12px] resize-none"
+                  className="min-h-20 md:min-h-32 text-sm md:text-base resize-none"
                 />
               </div>
 
               {error && (
-                <div className="p-4 bg-destructive/10 border border-destructive/20 rounded-lg text-destructive text-sm">
+                <div className="p-3 bg-destructive/10 border border-destructive/20 rounded-lg text-destructive text-xs md:text-sm">
                   {error}
                 </div>
               )}
 
-              <Button type="submit" size={`${isMobile ? "sm" : "lg"}`} className="w-full h-14 text-lg" disabled={isSubmitting}>
+              <Button type="submit" className="w-full h-10 md:h-14 text-sm md:text-lg" disabled={isSubmitting}>
                 {isSubmitting ? (
                   <>
                     <Loader2 className="mr-2 h-5 w-5 animate-spin" />
@@ -129,7 +157,7 @@ export function ContactForm() {
                 )}
               </Button>
 
-              <p className="text-center text-sm text-muted-foreground">
+              <p className="text-center text-xs md:text-sm text-muted-foreground">
                 By submitting this form, you agree to our privacy policy. We'll never share your information.
               </p>
             </form>
