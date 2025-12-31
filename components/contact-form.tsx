@@ -7,13 +7,14 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Send, CheckCircle, Loader2 } from "lucide-react"
+import { useIsMobile } from "./ui/use-mobile"
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const isMobile = useIsMobile()
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -22,10 +23,9 @@ export function ContactForm() {
 
     const formData = new FormData(e.currentTarget)
     const data = {
-      firstName: formData.get("firstName") as string,
-      lastName: formData.get("lastName") as string,
+      name: formData.get("name") as string,
       email: formData.get("email") as string,
-      phone: (formData.get("phone") as string) || undefined,
+      phone: (formData.get("phone") as string),
       message: formData.get("message") as string,
     }
 
@@ -55,7 +55,7 @@ export function ContactForm() {
 
   if (isSuccess) {
     return (
-      <section className="py-20 bg-muted/30">
+      <section className="md:py-20 py-10 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
             <div className="bg-card rounded-2xl shadow-lg p-12 text-center">
@@ -77,39 +77,35 @@ export function ContactForm() {
   }
 
   return (
-    <section className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section className="md:py-20 mt-10 py-10 bg-muted/30">
+      <div className="container mx-auto md:px-4 px-4">
         <div className="max-w-2xl mx-auto">
-          <div className="bg-card rounded-2xl shadow-lg p-8 md:p-12">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="firstName">First Name *</Label>
-                  <Input id="firstName" name="firstName" placeholder="John" required className="h-12" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="lastName">Last Name *</Label>
-                  <Input id="lastName" name="lastName" placeholder="Doe" required className="h-12" />
-                </div>
+          <div className="bg-card rounded-2xl shadow-lg p-2 md:p-12">
+            <form onSubmit={handleSubmit} className="md:space-y-6 space-y-2">
+
+              <div className="md:space-y-2 text-[12px] space-y-0.5">
+                <Label className=" " htmlFor="name">Name *</Label>
+                <Input id="name" name="name" placeholder="John" required className="md:h-12 h-6" />
               </div>
 
-              <div className="space-y-2">
+
+              <div className="md:space-y-2 text-[12px] space-y-0.5">
                 <Label htmlFor="email">Email Address *</Label>
-                <Input id="email" name="email" type="email" placeholder="john@example.com" required className="h-12" />
+                <Input id="email" name="email" type="email" placeholder="john@example.com" required className="md:h-12 h-6" />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="phone">Phone Number</Label>
-                <Input id="phone" name="phone" type="tel" placeholder="+88017 0000-0000" className="h-12" />
+              <div className="md:space-y-2 text-[12px] space-y-0.5">
+                <Label htmlFor="phone">Phone Number *</Label>
+                <Input id="phone" name="phone" type="tel" placeholder="+88017 0000-0000" className="md:h-12 h-6" />
               </div>
-              <div className="space-y-2">
+              <div className="md:space-y-2 text-[12px] space-y-0.5">
                 <Label htmlFor="message">Your Message *</Label>
                 <Textarea
                   id="message"
                   name="message"
                   placeholder="Tell us how we can help you..."
                   required
-                  className="min-h-[150px] resize-none"
+                  className="md:min-h-120 min-h-15 text-[12px] resize-none"
                 />
               </div>
 
@@ -119,7 +115,7 @@ export function ContactForm() {
                 </div>
               )}
 
-              <Button type="submit" size="lg" className="w-full h-14 text-lg" disabled={isSubmitting}>
+              <Button type="submit" size={`${isMobile ? "sm" : "lg"}`} className="w-full h-14 text-lg" disabled={isSubmitting}>
                 {isSubmitting ? (
                   <>
                     <Loader2 className="mr-2 h-5 w-5 animate-spin" />

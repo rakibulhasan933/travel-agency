@@ -2,10 +2,10 @@ import { NextResponse } from "next/server"
 import nodemailer from "nodemailer"
 
 interface ContactFormData {
-  firstName: string
+  name: string
   lastName: string
   email: string
-  phone?: string
+  phone: string
   message: string
 }
 
@@ -14,7 +14,7 @@ export async function POST(request: Request) {
     const data: ContactFormData = await request.json()
 
     // Validate required fields
-    if (!data.firstName || !data.lastName || !data.email || !data.message) {
+    if (!data.name || !data.phone || !data.email || !data.message) {
       return NextResponse.json({ success: false, error: "Please fill in all required fields." }, { status: 400 })
     }
 
@@ -42,7 +42,7 @@ export async function POST(request: Request) {
                   <!-- Header -->
                   <tr>
                     <td style="background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%); padding: 40px 40px; text-align: center;">
-                      <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: 700;">GlobalVoyage</h1>
+                      <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: 700;">Momu Travels & Tours</h1>
                       <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 16px;">New Contact Form Submission</p>
                     </td>
                   </tr>
@@ -55,7 +55,7 @@ export async function POST(request: Request) {
                         <tr>
                           <td style="padding: 15px 0; border-bottom: 1px solid #e4e4e7;">
                             <p style="margin: 0; color: #71717a; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">Full Name</p>
-                            <p style="margin: 5px 0 0 0; color: #18181b; font-size: 16px; font-weight: 600;">${data.firstName} ${data.lastName}</p>
+                            <p style="margin: 5px 0 0 0; color: #18181b; font-size: 16px; font-weight: 600;">${data.name}</p>
                           </td>
                         </tr>
                         <tr>
@@ -91,7 +91,7 @@ export async function POST(request: Request) {
                       <div style="text-align: center;">
                         <a href="mailto:${data.email}" 
                            style="display: inline-block; background-color: #0ea5e9; color: #ffffff; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px;">
-                          Reply to ${data.firstName}
+                          Reply to ${data.name}
                         </a>
                       </div>
                     </td>
@@ -132,7 +132,7 @@ export async function POST(request: Request) {
       from: `"Momu Travels & Tours" <${process.env.SMTP_USER}>`,
       to: process.env.CONTACT_EMAIL || process.env.SMTP_USER,
       replyTo: data.email,
-      subject: `[Momu Travels & Tours] from ${data.firstName} ${data.lastName}`,
+      subject: `[Momu Travels & Tours] from ${data.name}`,
       html: emailHtml,
     })
 
