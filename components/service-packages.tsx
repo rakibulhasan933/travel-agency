@@ -52,15 +52,13 @@ function PackageCard({ pkg, index, serviceColor }: { pkg: Package; index: number
 
                     {/* Price & CTA */}
                     <div className="flex items-end justify-between pt-4 border-t border-border">
-                        <div>
-                            <p className="text-xs text-muted-foreground uppercase tracking-wide">Starting from</p>
-                            <p className="text-2xl font-bold text-primary">
-                                {pkg.price.toLocaleString()} <span className="text-sm font-normal">{pkg.currency}</span>
-                            </p>
-                            <p className="text-xs text-muted-foreground">per person</p>
-                        </div>
-
                         <div className="flex gap-2">
+                            <Button size="sm" variant="outline" asChild>
+                                <Link href="tel:+8801894844452">
+                                    <Phone className="mr-2 h-5 w-5" />
+                                    Call for Price
+                                </Link>
+                            </Button>
                             <Button size="sm" variant="outline" asChild>
                                 <Link href={`https://wa.me/8801894844452?text=I'm interested in ${pkg.name} package`} target="_blank">
                                     <MessageCircle className="h-4 w-4" />
