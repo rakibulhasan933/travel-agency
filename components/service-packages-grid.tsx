@@ -60,14 +60,14 @@ export function ServicePackagesGrid({ activeService }: ServicePackagesGridProps)
                   {/* Actions */}
                   <div className="flex justify-between gap-2">
                     <Button size="sm" variant="outline" asChild>
-                      <Link prefetch={false} href="tel:+8801894844452">
+                      <Link prefetch={false} href="tel:+8801332-846700">
                         <Phone className="mr-2 h-5 w-5" />
                         Call for Price
                       </Link>
                     </Button>
                     <Button variant="outline" size="sm" className="shrink-0 bg-transparent" asChild>
                       <a
-                        href={`https://wa.me/8801234567890?text=Hi, I'm interested in ${pkg.name} (${pkg.duration}) - ${pkg.currency} ${pkg.price.toLocaleString()}`}
+                        href={`https://wa.me/8801332-846700?text=Hi, I'm interested in ${pkg.name} (${pkg.duration}) - ${pkg.currency} ${pkg.price.toLocaleString()}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
