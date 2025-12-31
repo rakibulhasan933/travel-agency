@@ -56,13 +56,16 @@ export function HeroSection() {
   const prevSlide = () => handleSlideChange((currentSlide - 1 + slides.length) % slides.length)
 
   return (
-    <section id="home" className="relative h-screen overflow-hidden">
+    <section
+      id="home"
+      className="relative h-[65vh] md:h-[75vh] lg:h-[85vh] overflow-hidden mt-16 md:mt-20 bg-foreground/5"
+    >
       {/* Background Slides with optimized images */}
       {slides.map((slide, index) => (
         <div
           key={index}
           className={cn(
-            "absolute inset-0 transition-all duration-1000 ease-out",
+            "absolute inset-0 z-0 transition-all duration-1000 ease-out",
             index === currentSlide ? "opacity-100 scale-100" : "opacity-0 scale-105",
           )}
         >
@@ -76,7 +79,7 @@ export function HeroSection() {
           />
           {/* Refined gradient overlay */}
           <div className="absolute inset-0 bg-linear-to-r from-foreground/80 via-foreground/50 to-foreground/30" />
-          <div className="absolute inset-0 bg-linear-to-t from-foreground/60 via-transparent to-foreground/20" />
+          <div className="absolute inset-0 bg-linear-to-t from-foreground/60 via-transparent to-foreground/40" />
         </div>
       ))}
 
@@ -88,7 +91,7 @@ export function HeroSection() {
       />
 
       {/* Content - Responsive padding */}
-      <div className="relative z-10 h-full flex items-center">
+      <div className="relative z-10 h-auto flex items-center py-12 md:py-20">
         <div className="container mx-auto px-4 md:px-6 lg:px-20">
           <div className="max-w-4xl">
             {/* Location badge - Responsive sizing */}

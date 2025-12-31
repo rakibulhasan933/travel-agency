@@ -23,22 +23,21 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      setIsScrolled(window.scrollY > 20)
     }
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   const isInternalPage = pathname !== "/"
-  const showSolidHeader = isScrolled || isInternalPage
+  const showSolidHeader = true // Always show solid background for distinct separation
 
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        showSolidHeader
-          ? "bg-card/98 backdrop-blur-xl shadow-lg shadow-foreground/5 py-2 md:py-3"
-          : "bg-linear-to-b from-foreground/20 to-transparent py-3 md:py-5",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "bg-card border-b border-border/50 shadow-sm py-2 md:py-3",
+        isScrolled && "shadow-md py-1.5 md:py-2",
       )}
     >
       <div className="container mx-auto px-4 md:px-6 lg:px-20 flex items-center justify-between">
@@ -47,13 +46,11 @@ export function Header() {
           <div
             className={cn(
               "relative w-10 h-10 md:w-12 md:h-12 rounded-lg transition-all duration-500 overflow-hidden shrink-0",
-              showSolidHeader
-                ? "bg-linear-to-br from-primary to-primary/80 shadow-lg shadow-primary/25"
-                : "bg-card/20 backdrop-blur-md border border-card/20",
+              "bg-linear-to-br from-primary to-primary/80 shadow-lg shadow-primary/25",
             )}
           >
             <Image
-              src={"/icon.png"}
+              src="/logo.jpg"
               alt="Mumo Travels & Tours Logo"
               fill
               className="object-contain p-1.5"
@@ -65,7 +62,7 @@ export function Header() {
             <span
               className={cn(
                 "text-base md:text-lg lg:text-xl font-bold transition-colors duration-300 leading-tight",
-                showSolidHeader ? "text-foreground" : "text-card",
+                "text-foreground",
               )}
             >
               Mu<span className="text-primary">mo</span>
@@ -73,7 +70,7 @@ export function Header() {
             <span
               className={cn(
                 "text-[8px] md:text-[9px] lg:text-[10px] uppercase tracking-[0.15em] md:tracking-[0.2em] font-medium transition-colors duration-300 whitespace-nowrap",
-                showSolidHeader ? "text-muted-foreground" : "text-card/70",
+                "text-muted-foreground",
               )}
             >
               Travels & Tours
@@ -89,8 +86,8 @@ export function Header() {
               href={link.href}
               className={cn(
                 "relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group",
-                showSolidHeader ? "text-foreground/80 hover:text-foreground" : "text-card/90 hover:text-card",
-                pathname === link.href && (showSolidHeader ? "text-primary bg-primary/5" : "text-card bg-card/15"),
+                "text-foreground/70 hover:text-primary",
+                pathname === link.href && "text-primary bg-primary/5",
               )}
             >
               {link.label}
