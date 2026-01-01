@@ -41,6 +41,9 @@ export function ContactForm() {
       const result = await response.json()
 
       if (result.success) {
+        if (typeof window?.fbq !== "undefined") {
+          window.fbq("track", "Lead",)
+        }
         setIsSuccess(true)
           ; (e.target as HTMLFormElement).reset()
       } else {
