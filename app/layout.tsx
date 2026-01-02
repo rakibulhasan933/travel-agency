@@ -2,11 +2,12 @@ import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Poppins } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import Script from "next/script"
 import "./globals.css"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
+import { MetaPixelInitializer } from "@/components/meta-pixel-initializer"
+
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -80,7 +81,7 @@ export const metadata: Metadata = {
     // yandex: "your-yandex-verification-code",
   },
   category: "travel",
-  generator: 'v0.app'
+  generator: "v0.app",
 }
 
 export const viewport: Viewport = {
@@ -94,13 +95,6 @@ export const viewport: Viewport = {
   userScalable: true,
 }
 
-declare global {
-  interface Window {
-    fbq: (command: string, event: string, data?: Record<string, unknown>) => void
-    _fbq: typeof window.fbq
-  }
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -108,32 +102,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="hydrated" data-scroll-behavior="smooth">
-      <head>
-        <Script
-          id="facebook-pixel"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              !function(f,b,e,v,n,t,s)
-              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-              n.queue=[];t=b.createElement(e);t.async=!0;
-              t.src=v;s=b.getElementsByTagName(e)[0];
-              s.parentNode.insertBefore(t,s)}(window, document,'script',
-              'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '${process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID || ""}');
-              fbq('track', 'PageView');
-            `,
-          }}
-        />
-      </head>
       <body className={`${poppins.className} hydrated font-sans antialiased`}>
+
         <Header />
         {children}
         <Analytics />
         <Footer />
         <ScrollToTop />
+        <MetaPixelInitializer />
       </body>
     </html>
   )

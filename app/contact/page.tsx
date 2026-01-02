@@ -1,53 +1,25 @@
-"use client";
+"use client"
 
 import { PageHeader } from "@/components/page-header"
 import { ContactForm } from "@/components/contact-form"
 import { useIsMobile } from "@/components/ui/use-mobile"
-import Script from "next/script";
-
 
 export default function ContactPage() {
   const isMobile = useIsMobile()
-  return (
-    <>
-      <head>
-        <Script id="facebook-pixel" strategy="afterInteractive">
-          {`
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '748336294208189');
-            fbq('track', 'contactPageView');
-          `}
-        </Script>
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=748336294208189&ev=contactPageView&noscript=1"
-            alt=""
-          />
-        </noscript>
-      </head>
 
-      <main className="min-h-screen">
-        {
-          isMobile ? null : (
-            <PageHeader
-              title="Contact Us"
-              subtitle="We'd love to hear from you. Send us a message and we'll respond as soon as possible."
-              breadcrumb="Contact"
-            />
-          )
-        }
-        <ContactForm />
-      </main>
-    </>
+  // Page tracking is now handled automatically by MetaPixelInitializer component
+  // No need for inline scripts here
+
+  return (
+    <main className="min-h-screen">
+      {isMobile ? null : (
+        <PageHeader
+          title="Contact Us"
+          subtitle="We'd love to hear from you. Send us a message and we'll respond as soon as possible."
+          breadcrumb="Contact"
+        />
+      )}
+      <ContactForm />
+    </main>
   )
 }
