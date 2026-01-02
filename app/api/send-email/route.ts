@@ -3,9 +3,10 @@ import nodemailer from "nodemailer"
 
 interface ContactFormData {
   name: string
-  email: string
+  email?: string
   phone: string
   message: string
+  service: string
 }
 
 export async function POST(request: Request) {
@@ -13,14 +14,8 @@ export async function POST(request: Request) {
     const data: ContactFormData = await request.json()
 
     // Validate required fields
-    if (!data.name || !data.phone || !data.email || !data.message) {
+    if (!data.name || !data.phone || !data.service || !data.message) {
       return NextResponse.json({ success: false, error: "Please fill in all required fields." }, { status: 400 })
-    }
-
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(data.email)) {
-      return NextResponse.json({ success: false, error: "Please enter a valid email address." }, { status: 400 })
     }
 
     // Construct HTML email content
@@ -54,7 +49,7 @@ export async function POST(request: Request) {
                         <tr>
                           <td style="padding: 15px 0; border-bottom: 1px solid #e4e4e7;">
                             <p style="margin: 0; color: #71717a; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">Full Name</p>
-                            <p style="margin: 5px 0 0 0; color: #18181b; font-size: 16px; font-weight: 600;">${data.name}</p>
+                            <p style="margin: 5px 0 0 0; color: #18181b; font-size: 16px; font-weight: 600;">${data.name} for ${data.service}</p>
                           </td>
                         </tr>
                         <tr>
@@ -119,25 +114,27 @@ export async function POST(request: Request) {
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || "smtp.gmail.com",
       port: Number.parseInt(process.env.SMTP_PORT || "587"),
-      secure: process.env.SMTP_SECURE === "true",
+      secure: process.env.SMTP_SECURE === "true" ? false : true, // true for 465, false for other ports
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASSWORD,
       },
-    })
+    });
+
 
     // Send email
     await transporter.sendMail({
       from: `"Momu Travels & Tours" <${process.env.SMTP_USER}>`,
       to: process.env.CONTACT_EMAIL || process.env.SMTP_USER,
       replyTo: data.email,
-      subject: `[Momu Travels & Tours] from ${data.name}`,
+      subject: `[Momu Travels & Tours] from ${data.name} regarding ${data.service}`,
       html: emailHtml,
     })
 
     return NextResponse.json({ success: true })
   } catch (error) {
-    console.error("Failed to send email:", error)
+    // console.error("Failed to send email:", error)
+    console.log({ error });
     return NextResponse.json(
       { success: false, error: "Failed to send email. Please try again later." },
       { status: 500 },
