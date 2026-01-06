@@ -18,7 +18,7 @@ export default async function Home() {
         <AboutSection />
         <div className="px-4 md:px-6 lg:px-20">
           <ServicesWithFilter services={services} />
-          <ServicesSection />
+          <ServicesSection services={services} />
         </div>
         <WhyChooseUsSection />
         <TestimonialsSection />
