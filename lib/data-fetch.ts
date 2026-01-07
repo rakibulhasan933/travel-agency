@@ -1,4 +1,3 @@
-import { blogPosts } from "./blog-data"
 
 export interface HeroSliderIProps {
     id: number
@@ -164,6 +163,15 @@ export async function getTestimonialsData(): Promise<TestimonialIProps[]> {
     }
 }
 
+export async function getServiceBySlug(slug: string): Promise<ServicesIProps | undefined> {
+    const servicesData = await getServicesWithPackages();
+    return servicesData.find((service) => service.url === slug)
+}
+
+export async function getPackageById(serviceSlug: string, packageId: string): Promise<PackageIProps | undefined> {
+    const service = await getServiceBySlug(serviceSlug)
+    return service?.packages?.find((pkg) => pkg.id.toString() === packageId)
+}
 
 
 export async function getServicesWithPackages(): Promise<ServicesIProps[]> {
