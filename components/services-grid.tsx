@@ -38,10 +38,10 @@ export function ServicesGrid({ services }: { services: ServicesIProps[] }) {
                   <div
                     className={`inline-flex p-4 rounded-2xl bg-linear-to-br mb-6 group-hover:scale-110 transition-transform duration-300`}
                   >
-                    <div className="text-4xl shrink-0 p-4 bg-primary/10 rounded-lg h-fit">
+                    <div className="text-4xl shrink-0 p-4 bg-blue-600 rounded-lg h-fit">
                       <IconRenderer
                         name={service.icon}
-                        className="h-8 w-8 text-primary"
+                        className="h-8 w-8 text-white"
                         fallbackClassName="h-8 w-8 text-muted-foreground opacity-50"
                       />
                     </div>
