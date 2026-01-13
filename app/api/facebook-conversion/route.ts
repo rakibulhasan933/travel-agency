@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server"
 import crypto from "crypto"
 
-const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID
+const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 // Replace with your pixel ID
-const ACCESS_TOKEN = process.env.NEXT_FACEBOOK_CONVERSION_API_TOKEN
+const ACCESS_TOKEN = process.env.NEXT_FACEBOOK_CONVERSION_API_TOKEN;
 // Replace with your access token
 
 function hashData(data: string | null | undefined) {
@@ -15,6 +15,8 @@ export async function POST(request: Request) {
     try {
         const body = await request.json()
         const { email, phone, name, service, message, externalId, fbc, fbp, eventSourceUrl } = body
+
+        console.log({ ACCESS_TOKEN, PIXEL_ID });
 
         // Get client IP and user agent
         const clientIpAddress =
