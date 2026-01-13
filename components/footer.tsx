@@ -61,13 +61,13 @@ export function Footer({
             <div className="flex gap-2 md:gap-3">
               {[
                 { icon: Facebook, href: "https://www.facebook.com/mumotravelsandtours" },
-                { icon: Instagram, href: "#" },
-                { icon: Twitter, href: "#" },
-                { icon: Youtube, href: "#" },
+                { icon: Instagram, href: "https://www.instagram.com/mumotravelsandtours" },
               ].map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-2.5 md:p-3 rounded-lg md:rounded-xl bg-white/5 border border-white/10 hover:bg-primary hover:border-primary hover:scale-110 transition-all duration-300"
                 >
                   <social.icon className="h-4 w-4 md:h-5 md:w-5" />
@@ -75,6 +75,7 @@ export function Footer({
               ))}
             </div>
           </div>
+          <a href="http://"  ></a>
 
           {/* Quick Links */}
           <div>
@@ -159,7 +160,7 @@ export function Footer({
                     <Mail className="h-3.5 w-3.5 md:h-4 md:w-4" />
                   </div>
                   <span className="text-white/60 text-[12px] md:text-base group-hover:text-primary transition-colors">
-                    mumotravelsandtours@gmail.com
+                    mumotravel@gmail.com
                   </span>
                 </a>
               </li>
