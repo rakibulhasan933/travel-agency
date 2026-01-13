@@ -7,10 +7,13 @@ import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import type { HeroSliderIProps } from "@/lib/data-fetch"
+import { useIsMobile } from "@/components/ui/use-mobile"
 
 export function HeroSection({ sliders }: { sliders: HeroSliderIProps[] }) {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [isTransitioning, setIsTransitioning] = useState(false)
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -56,48 +59,6 @@ export function HeroSection({ sliders }: { sliders: HeroSliderIProps[] }) {
 
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-between py-8 md:py-12 lg:py-16 px-4">
         <div></div>
-
-        <div className="flex flex-col items-center gap-4 md:gap-6">
-          <div
-            className="flex flex-col sm:flex-row gap-3 md:gap-4 animate-fade-in-up w-full sm:w-auto"
-            style={{ animationDelay: "400ms" }}
-          >
-            <Button
-              size="lg"
-              className={cn(
-                "group relative overflow-hidden",
-                "bg-primary hover:bg-primary/90 text-primary-foreground",
-                "rounded-full px-6 md:px-10 py-4 md:py-6 text-sm md:text-base font-semibold",
-                "shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40",
-                "transition-all duration-300 hover:scale-[1.02]",
-                "w-full sm:w-auto",
-              )}
-              asChild
-            >
-              <Link prefetch={false} href="/services">
-                <span className="relative z-10">View Packages</span>
-                <div className="absolute inset-0 bg-linear-to-r from-transparent via-card/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-              </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className={cn(
-                "group border-2 border-card/40 text-card",
-                "bg-card/5 backdrop-blur-sm",
-                "hover:bg-card hover:text-foreground hover:border-card",
-                "rounded-full px-6 md:px-10 py-4 md:py-6 text-sm md:text-base font-semibold",
-                "transition-all duration-300",
-                "w-full sm:w-auto",
-              )}
-              asChild
-            >
-              <Link prefetch={false} href="/contact">
-                Contact Us
-              </Link>
-            </Button>
-          </div>
-        </div>
       </div>
 
       <button

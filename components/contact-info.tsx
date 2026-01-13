@@ -8,10 +8,6 @@ import { ServicesIProps } from "@/lib/data-fetch"
 export default function ContactPage({ services }: { services: ServicesIProps[] }) {
     const isMobile = useIsMobile();
 
-    console.log({ services });
-
-
-
     return (
         <main className="min-h-screen">
             {isMobile ? null : (
