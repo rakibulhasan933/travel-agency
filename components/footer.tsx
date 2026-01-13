@@ -46,7 +46,7 @@ export async function Footer({
                   width={150}
                   height={50}
                   quality={100}
-                  className=""
+                  className=" rounded-md"
                   priority
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
