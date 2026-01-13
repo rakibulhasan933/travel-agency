@@ -72,7 +72,7 @@ export function ContactForm({ services }: { services: ServicesIProps[] }) {
     setIsSubmitting(true)
 
     try {
-      const fbc = fbq.getFbc()
+      const fbc = fbq.getFbc();
       const fbp = fbq.getFbp()
       const externalId = fbq.generateExternalId()
       const eventSourceUrl = typeof window !== "undefined" ? window.location.href : ""

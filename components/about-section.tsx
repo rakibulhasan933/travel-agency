@@ -38,11 +38,11 @@ export function AboutSection() {
           >
             <div className="relative">
               <div className="aspect-4/3 rounded-2xl overflow-hidden shadow-2xl">
-                <Image width={500} quality={100} height={500} src="/travel-agency-office-team-professional-meeting.jpg" alt="Our Team" className="w-full h-full object-cover" />
+                <Image width={400} quality={100} height={400} src="/travel-agency-professional-team-meeting-office.jpg" alt="Our Team" className="w-full h-full object-cover" />
               </div>
               {/* Floating Card */}
               <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-6 rounded-2xl shadow-xl">
-                <div className="text-4xl font-bold">7+</div>
+                <div className="text-4xl font-bold">3+</div>
                 <div className="text-sm opacity-90">Years of Excellence</div>
               </div>
               {/* Decorative Element */}
@@ -62,7 +62,7 @@ export function AboutSection() {
               Your Trusted Partner for Global Travel
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              Since 2018, Mumo Travels & Tours has been helping travelers explore the world with confidence. We combine
+              Since 2023, Mumo Travels & Tours has been helping travelers explore the world with confidence. We combine
               expertise, passion, and personalized service to create unforgettable journeys. Whether you need visa
               assistance, flight bookings, or complete tour packages, our dedicated team is here to make your travel
               dreams a reality.
