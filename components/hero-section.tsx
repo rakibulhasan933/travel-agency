@@ -1,9 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import type { HeroSliderIProps } from "@/lib/data-fetch"
@@ -11,15 +9,20 @@ import { useIsMobile } from "@/components/ui/use-mobile"
 
 export function HeroSection({ sliders }: { sliders: HeroSliderIProps[] }) {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false)
+  const currentSlideRef = useRef(0)
 
-  const isMobile = useIsMobile();
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     const timer = setInterval(() => {
-      handleSlideChange((currentSlide + 1) % sliders.length)
-    }, 7000)
+      setCurrentSlide((prev) => (prev + 1) % sliders.length)
+    }, 4000)
     return () => clearInterval(timer)
+  }, [sliders.length])
+
+  useEffect(() => {
+    currentSlideRef.current = currentSlide
   }, [currentSlide])
 
   const handleSlideChange = (index: number) => {
